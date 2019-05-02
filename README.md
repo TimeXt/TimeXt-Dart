@@ -1,7 +1,7 @@
 # TimeXt-Dart - develop branch
 
 [![Version](https://img.shields.io/badge/version-v0.1.0+1-blue.svg)](https://github.com/TimeXt/TimeXt-Dart/releases/tag/v0.0.1+1)
-[![Build](https://img.shields.io/badge/build-failed-red.svg)](timext)
+[![Build](https://img.shields.io/badge/build-success-green.svg)](timext)
 [![CodeCoverage](https://img.shields.io/badge/codeCoverage-50-orange.svg)](timext)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
