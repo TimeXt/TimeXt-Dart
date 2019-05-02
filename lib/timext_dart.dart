@@ -22,11 +22,16 @@ class TimeXt {
   TimeXt toSeconds() => TimeXt(this.inSeconds(), TimeXtUnit.Second);
   TimeXt toMilliseconds() => TimeXt(this.inMilliseconds(), TimeXtUnit.Millisecond);
 
+  static TimeXt fromDuration(Duration duration, {TimeXtUnit unit: TimeXtUnit.Millisecond}) => TimeXt(duration.inMilliseconds.toDouble() * TimeXtUnit.Millisecond._value / unit._value, unit);
+  Duration toDuration() => Duration(milliseconds: this.inMilliseconds().toInt());
+
   operator +(TimeXt other) => TimeXt(((this.inMilliseconds() + other.inMilliseconds()) / this._unit._value) * TimeXtUnit.Millisecond._value, this._unit);
   operator -(TimeXt other) => TimeXt(((this.inMilliseconds() - other.inMilliseconds()) / this._unit._value) * TimeXtUnit.Millisecond._value, this._unit);
   operator *(double other) => TimeXt(this._value * other, this._unit);
   operator /(double other) => TimeXt(this._value / other, this._unit);
   operator ==(other) => this.inMilliseconds() == other.inMilliseconds();
+  operator >(other) => this.inMilliseconds() > other.inMilliseconds();
+  operator <(other) => this.inMilliseconds() < other.inMilliseconds();
 
   @override int get hashCode => this.inMilliseconds().hashCode;
   @override String toString() => "$_value, $_unit";
