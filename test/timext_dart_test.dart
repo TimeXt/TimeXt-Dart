@@ -51,4 +51,16 @@ void main() {
     expect(TimeXt.fromDuration(Duration(minutes: 1), unit: TimeXtUnit.Second), new TimeXt(60, TimeXtUnit.Second));
     expect(new TimeXt(60, TimeXtUnit.Second).toDuration(), Duration(milliseconds: 60000));
   });
+
+  test('All NumberToString methods should work as expected', () {
+    expect(NumberToString.formatMilliseconds(0), "0 milliseconds");
+    expect(NumberToString.formatSeconds(0), "0 milliseconds");
+    expect(NumberToString.formatMinutes(0), "0 milliseconds");
+    expect(NumberToString.formatHours(0), "0 milliseconds");
+
+    expect(NumberToString.formatMilliseconds(34325055574), "56 weeks, 5 days, 6 hours, 44 minutes, 15 seconds, 574 milliseconds");
+    expect(NumberToString.formatSeconds(4350554), "7 weeks, 1 day, 8 hours, 29 minutes, 14 seconds");
+    expect(NumberToString.formatMinutes(432555), "42 weeks, 6 days, 9 hours, 15 minutes");
+    expect(NumberToString.formatHours(4574), "27 weeks, 1 day, 14 hours");
+  });
 }

@@ -52,3 +52,77 @@ class TimeXtUnit {
   static const Second = const TimeXtUnit._internal(1e3);
   static const Millisecond = const TimeXtUnit._internal(1e0);
 }
+
+class NumberToString {
+
+  static List _dictionaryToStringList(Map<String, List<int>> dictionary, int time) {
+    List stringList = [];
+    dictionary.forEach((key, value) {
+      var testValue = ((time / value.elementAt(0)) % value.elementAt(1)).floor();
+      testValue > 1
+          ? stringList.add("$testValue ${key}s")
+          : testValue > 0
+              ? stringList.add("$testValue $key")
+              : stringList.add("");
+    });
+    return stringList.where((value) => value.length > 0).toList();
+  }
+
+  static String formatMilliseconds(int milliseconds) {
+    var dictionary = {
+      "week": [7 * 24 * 60 * 60 * 1000, 2 ^ 64],
+      "day": [24 * 60 * 60 * 1000, 7],
+      "hour": [60 * 60 * 1000, 24],
+      "minute": [60 * 1000, 60],
+      "second": [1000, 60],
+      "millisecond": [1, 1000]
+    };
+
+    List stringList = _dictionaryToStringList(dictionary, milliseconds);
+    return stringList.length > 0
+        ? stringList.join(", ")
+        : "0 milliseconds";
+  }
+
+  static String formatSeconds(int seconds) {
+    var dictionary = {
+      "week": [7 * 24 * 60 * 60 * 1, 2 ^ 64],
+      "day": [24 * 60 * 60 * 1, 7],
+      "hour": [60 * 60 * 1, 24],
+      "minute": [60 * 1, 60],
+      "second": [1, 60]
+    };
+
+    List stringList = _dictionaryToStringList(dictionary, seconds);
+    return stringList.length > 0
+        ? stringList.join(", ")
+        : formatMilliseconds(seconds * 1000);
+  }
+  
+  static String formatMinutes(int minutes) {
+    var dictionary = {
+      "week": [7 * 24 * 60 * 1, 2 ^ 64],
+      "day": [24 * 60 * 1, 7],
+      "hour": [60 * 1, 24],
+      "minute": [1, 60]
+    };
+
+    List stringList = _dictionaryToStringList(dictionary, minutes);
+    return stringList.length > 0
+        ? stringList.join(", ")
+        : formatSeconds(minutes * 60);
+  }
+  
+  static String formatHours(int hours) {
+    var dictionary = {
+      "week": [7 * 24 * 1, 2 ^ 64],
+      "day": [24 * 1, 7],
+      "hour": [1, 24]
+    };
+
+    List stringList = _dictionaryToStringList(dictionary, hours);
+    return stringList.length > 0
+        ? stringList.join(", ")
+        : formatMinutes(hours * 60);
+  }
+}
