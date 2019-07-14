@@ -1,8 +1,8 @@
 # TimeXt-Dart
 
-[![Version](https://img.shields.io/badge/version-v0.2.0-blue.svg)](https://github.com/TimeXt/TimeXt-Dart/releases/tag/0.2.0)
+[![Version](https://img.shields.io/badge/version-v0.3.0-blue.svg)](https://github.com/TimeXt/TimeXt-Dart/releases/tag/0.2.0)
 [![Build](https://img.shields.io/badge/build-success-green.svg)](timext)
-[![CodeCoverage](https://img.shields.io/badge/codeCoverage-75-yellow.svg)](timext)
+[![CodeCoverage](https://img.shields.io/badge/codeCoverage-95-green.svg)](timext)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Paypal](https://img.shields.io/badge/paypal-donate-blue.svg)](https://www.paypal.me/GuepardoApps)
@@ -29,9 +29,9 @@ var threeDays = new TimeXt(3, TimeXtUnit.Day)
 var elevenHours = new TimeXt(11, TimeXtUnit.Hour)
 var sixMinutes = new TimeXt(6, TimeXtUnit.Minute)
 var fiftySeconds = new TimeXt(50, TimeXtUnit.Second)
-var hundredMilliseconds = new TimeXt(100, TimeXtUnit.Millisecond)
+var hundredMillis = new TimeXt(100, TimeXtUnit.Millis)
 
-var oneDayInMillis = new TimeXt(1, TimeXtUnit.Day).inMilliseconds()  // Returns one day in milliseconds
+var oneDayInMillis = new TimeXt(1, TimeXtUnit.Day).inMillis()  // Returns one day in milliseconds
 var twoWeeksInHours = new TimeXt(2, TimeXtUnit.Week).inHours()       // Returns two weeks in hours
 
 // Converts the existing 3h-Class into a 180min-Class
@@ -41,7 +41,7 @@ var duration = new TimeXt(3, TimeXtUnit.Year) + new TimeXt(1, TimeXtUnit.Week) +
 var multipliedDuration = 1.5 * duration
 var dividedDuration = duration / 2
 
-var isLessTrue = new TimeXt(30, TimeXtUnit.Second) < new TimeXt(30001, TimeXtUnit.Millisecond)
+var isLessTrue = new TimeXt(30, TimeXtUnit.Second) < new TimeXt(30001, TimeXtUnit.Millis)
 var isLessFalse = new TimeXt(3, TimeXtUnit.Week) < new TimeXt(20, TimeXtUnit.Day)
 
 var isBiggerTrue = new TimeXt(1, TimeXtUnit.Day) > new TimeXt(23, TimeXtUnit.Hour)
@@ -49,12 +49,14 @@ var isBiggerFalse = new TimeXt(5, TimeXtUnit.Hour) > new TimeXt(301, TimeXtUnit.
 ```
 
 Since version 0.2.0 TimeXt has new extensions for the long type to display this number value in a human readable string format.
+Since version 0.3.0 TimeXt supports double numbers.
 
 ```dart
-var readableStringFromMilliseconds = NumberToString.formatMilliseconds(34325055574) // 56 weeks, 5 days, 6 hours, 44 minutes, 15 seconds, 574 milliseconds
-var readableStringFromSeconds = NumberToString.formatMilliseconds(4350554) // 7 weeks, 1 day, 8 hours, 29 minutes, 14 seconds
-var readableStringFromMinutes = NumberToString.formatMilliseconds(432555) // 42 weeks, 6 days, 9 hours, 15 minutes
-var readableStringFromHours = NumberToString.formatMilliseconds(4574) // 27 weeks, 1 day, 14 hours
+var readableStringFromMillis = NumberToString.formatMillis(34325055574) // 56 weeks, 5 days, 6 hours, 44 minutes, 15 seconds, 574 milliseconds
+var readableStringFromSeconds = NumberToString.formatSeconds(4350554) // 7 weeks, 1 day, 8 hours, 29 minutes, 14 seconds
+var readableStringFromMinutes = NumberToString.formatMinutes(432555) // 42 weeks, 6 days, 9 hours, 15 minutes
+var readableStringFromHours = NumberToString.formatHours(4574) // 27 weeks, 1 day, 14 hours
+var readableStringFromDays = NumberToString.formatDays(15.5) // 2 weeks, 1 day, 12 hours
 ```
 
 ## License

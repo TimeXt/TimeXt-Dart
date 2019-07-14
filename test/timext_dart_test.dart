@@ -24,9 +24,9 @@ void main() {
     expect(new TimeXt(30, TimeXtUnit.Minute) > new TimeXt(1799, TimeXtUnit.Second), true);
     expect(new TimeXt(45, TimeXtUnit.Minute) < new TimeXt(2701, TimeXtUnit.Second), true);
 
-    expect(new TimeXt(10, TimeXtUnit.Second), new TimeXt(10000, TimeXtUnit.Millisecond));
-    expect(new TimeXt(20, TimeXtUnit.Second) > new TimeXt(19999, TimeXtUnit.Millisecond), true);
-    expect(new TimeXt(30, TimeXtUnit.Second) < new TimeXt(30001, TimeXtUnit.Millisecond), true);
+    expect(new TimeXt(10, TimeXtUnit.Second), new TimeXt(10000, TimeXtUnit.Millis));
+    expect(new TimeXt(20, TimeXtUnit.Second) > new TimeXt(19999, TimeXtUnit.Millis), true);
+    expect(new TimeXt(30, TimeXtUnit.Second) < new TimeXt(30001, TimeXtUnit.Millis), true);
   });
 
   test('All conversions should work as expected', () {
@@ -34,8 +34,8 @@ void main() {
     expect(new TimeXt(14, TimeXtUnit.Day).inWeeks(), 2);
     expect(new TimeXt(17520, TimeXtUnit.Hour).inYears(), 2);
     expect(new TimeXt(5.5, TimeXtUnit.Minute).inSeconds(), 330);
-    expect(new TimeXt(1.52, TimeXtUnit.Second).inMilliseconds(), 1520);
-    expect(new TimeXt(30000, TimeXtUnit.Millisecond).inMinutes(), 0.5);
+    expect(new TimeXt(1.52, TimeXtUnit.Second).inMillis(), 1520);
+    expect(new TimeXt(30000, TimeXtUnit.Millis).inMinutes(), 0.5);
   });
 
   test('All casts should work as expected', () {
@@ -43,8 +43,8 @@ void main() {
     expect(new TimeXt(14, TimeXtUnit.Day).toWeeks(), new TimeXt(2, TimeXtUnit.Week));
     expect(new TimeXt(17520, TimeXtUnit.Hour).toYears(), new TimeXt(2, TimeXtUnit.Year));
     expect(new TimeXt(5.5, TimeXtUnit.Minute).toSeconds(), new TimeXt(330, TimeXtUnit.Second));
-    expect(new TimeXt(1.52, TimeXtUnit.Second).toMilliseconds(), new TimeXt(1520, TimeXtUnit.Millisecond));
-    expect(new TimeXt(30000, TimeXtUnit.Millisecond).toMinutes(), new TimeXt(0.5, TimeXtUnit.Minute));
+    expect(new TimeXt(1.52, TimeXtUnit.Second).toMillis(), new TimeXt(1520, TimeXtUnit.Millis));
+    expect(new TimeXt(30000, TimeXtUnit.Millis).toMinutes(), new TimeXt(0.5, TimeXtUnit.Minute));
   });
 
   test('Duration casts should work as expected', () {
@@ -53,14 +53,20 @@ void main() {
   });
 
   test('All NumberToString methods should work as expected', () {
-    expect(NumberToString.formatMilliseconds(0), "0 milliseconds");
+    expect(NumberToString.formatMillis(0), "0 milliseconds");
     expect(NumberToString.formatSeconds(0), "0 milliseconds");
     expect(NumberToString.formatMinutes(0), "0 milliseconds");
     expect(NumberToString.formatHours(0), "0 milliseconds");
+    expect(NumberToString.formatDays(0), "0 milliseconds");
 
-    expect(NumberToString.formatMilliseconds(34325055574), "56 weeks, 5 days, 6 hours, 44 minutes, 15 seconds, 574 milliseconds");
+    expect(NumberToString.formatMillis(34325055574), "56 weeks, 5 days, 6 hours, 44 minutes, 15 seconds, 574 milliseconds");
     expect(NumberToString.formatSeconds(4350554), "7 weeks, 1 day, 8 hours, 29 minutes, 14 seconds");
+    expect(NumberToString.formatSeconds(90.250), "1 minute, 30 seconds, 250 milliseconds");
     expect(NumberToString.formatMinutes(432555), "42 weeks, 6 days, 9 hours, 15 minutes");
+    expect(NumberToString.formatMinutes(0.5), "30 seconds");
     expect(NumberToString.formatHours(4574), "27 weeks, 1 day, 14 hours");
+    expect(NumberToString.formatHours(49.25), "2 days, 1 hour, 15 minutes");
+    expect(NumberToString.formatDays(23), "3 weeks, 2 days");
+    expect(NumberToString.formatDays(15.5), "2 weeks, 1 day, 12 hours");
   });
 }
