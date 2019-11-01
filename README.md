@@ -62,6 +62,12 @@ var readableStringFromDays = NumberToString.formatDays(15.5) // 2 weeks, 1 day, 
 const readableStringFromWeeks = NumberToString.formatWeeks(24.5) // 24 weeks, 3 days, 12 hours
 ```
 
+## Contributors
+
+| [<img alt="GuepardoApps" src="https://avatars0.githubusercontent.com/u/21952813?v=4&s=117" width="117"/>](https://github.com/GuepardoApps) |
+| :---------------------------------------------------------------------------------------------------------------------------------------: |
+| [GuepardoApps](https://github.com/GuepardoApps) |
+
 ## License
 
 TimeXt-Dart is distributed under the MIT license. [See LICENSE](LICENSE.md) for details.
