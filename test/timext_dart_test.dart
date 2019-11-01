@@ -4,7 +4,15 @@ import 'package:timext_dart/timext_dart.dart';
 
 void main() {
   test('All comparisons should work as expected', () {
-    expect(new TimeXt(2, TimeXtUnit.Year), new TimeXt(730, TimeXtUnit.Day));
+    expect(new TimeXt(2, TimeXtUnit.Century), new TimeXt(20, TimeXtUnit.Decade));
+    expect(new TimeXt(3, TimeXtUnit.Century) > new TimeXt(20, TimeXtUnit.Decade), true);
+    expect(new TimeXt(0.5, TimeXtUnit.Century) < new TimeXt(10, TimeXtUnit.Decade), true);
+
+    expect(new TimeXt(2, TimeXtUnit.Decade), new TimeXt(20, TimeXtUnit.Year));
+    expect(new TimeXt(3, TimeXtUnit.Decade) > new TimeXt(20, TimeXtUnit.Year), true);
+    expect(new TimeXt(0.5, TimeXtUnit.Decade) < new TimeXt(10, TimeXtUnit.Year), true);
+
+    expect(new TimeXt(2, TimeXtUnit.Year), new TimeXt(730.5, TimeXtUnit.Day));
     expect(new TimeXt(3, TimeXtUnit.Year) > new TimeXt(20, TimeXtUnit.Day), true);
     expect(new TimeXt(0.5, TimeXtUnit.Year) < new TimeXt(200, TimeXtUnit.Day), true);
 
@@ -30,18 +38,22 @@ void main() {
   });
 
   test('All conversions should work as expected', () {
-    expect(new TimeXt(1, TimeXtUnit.Year).inDays(), 365);
+    expect(new TimeXt(1, TimeXtUnit.Century).inDecades(), 10);
+    expect(new TimeXt(1, TimeXtUnit.Decade).inYears(), 10);
+    expect(new TimeXt(1, TimeXtUnit.Year).inDays(), 365.25);
     expect(new TimeXt(14, TimeXtUnit.Day).inWeeks(), 2);
-    expect(new TimeXt(17520, TimeXtUnit.Hour).inYears(), 2);
+    expect(new TimeXt(8766, TimeXtUnit.Hour).inYears(), 1);
     expect(new TimeXt(5.5, TimeXtUnit.Minute).inSeconds(), 330);
     expect(new TimeXt(1.52, TimeXtUnit.Second).inMillis(), 1520);
     expect(new TimeXt(30000, TimeXtUnit.Millis).inMinutes(), 0.5);
   });
 
   test('All casts should work as expected', () {
-    expect(new TimeXt(1, TimeXtUnit.Year).toDays(), new TimeXt(365, TimeXtUnit.Day));
+    expect(new TimeXt(1, TimeXtUnit.Century).toDecades(), new TimeXt(10, TimeXtUnit.Decade));
+    expect(new TimeXt(1, TimeXtUnit.Decade).toYears(), new TimeXt(10, TimeXtUnit.Year));
+    expect(new TimeXt(1, TimeXtUnit.Year).toDays(), new TimeXt(365.25, TimeXtUnit.Day));
     expect(new TimeXt(14, TimeXtUnit.Day).toWeeks(), new TimeXt(2, TimeXtUnit.Week));
-    expect(new TimeXt(17520, TimeXtUnit.Hour).toYears(), new TimeXt(2, TimeXtUnit.Year));
+    expect(new TimeXt(8766, TimeXtUnit.Hour).toYears(), new TimeXt(1, TimeXtUnit.Year));
     expect(new TimeXt(5.5, TimeXtUnit.Minute).toSeconds(), new TimeXt(330, TimeXtUnit.Second));
     expect(new TimeXt(1.52, TimeXtUnit.Second).toMillis(), new TimeXt(1520, TimeXtUnit.Millis));
     expect(new TimeXt(30000, TimeXtUnit.Millis).toMinutes(), new TimeXt(0.5, TimeXtUnit.Minute));

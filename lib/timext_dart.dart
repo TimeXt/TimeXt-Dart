@@ -6,6 +6,8 @@ class TimeXt {
 
   TimeXt(this._value, this._unit);
 
+  double inCenturies() => this._value * this._unit._value / TimeXtUnit.Century._value;
+  double inDecades() => this._value * this._unit._value / TimeXtUnit.Decade._value;
   double inYears() => this._value * this._unit._value / TimeXtUnit.Year._value;
   double inWeeks() => this._value * this._unit._value / TimeXtUnit.Week._value;
   double inDays() => this._value * this._unit._value / TimeXtUnit.Day._value;
@@ -14,6 +16,8 @@ class TimeXt {
   double inSeconds() => this._value * this._unit._value / TimeXtUnit.Second._value;
   double inMillis() => this._value * this._unit._value / TimeXtUnit.Millis._value;
 
+  TimeXt toCenturies() => TimeXt(this.inCenturies(), TimeXtUnit.Century);
+  TimeXt toDecades() => TimeXt(this.inDecades(), TimeXtUnit.Decade);
   TimeXt toYears() => TimeXt(this.inYears(), TimeXtUnit.Year);
   TimeXt toWeeks() => TimeXt(this.inWeeks(), TimeXtUnit.Week);
   TimeXt toDays() => TimeXt(this.inDays(), TimeXtUnit.Day);
@@ -44,10 +48,12 @@ class TimeXtUnit {
 
   @override String toString() => "$_value";
 
-  static const Year = const TimeXtUnit._internal(365 * 24 * 60 * 60 * 1e3);
-  static const Week = const TimeXtUnit._internal(7 * 24 * 60 * 60 * 1e3);
-  static const Day = const TimeXtUnit._internal(24 * 60 * 60 * 1e3);
-  static const Hour = const TimeXtUnit._internal(60 * 60 * 1e3);
+  static const Century = const TimeXtUnit._internal(3155760000 * 1e3);
+  static const Decade = const TimeXtUnit._internal(315576000 * 1e3);
+  static const Year = const TimeXtUnit._internal(31557600 * 1e3);
+  static const Week = const TimeXtUnit._internal(604800 * 1e3);
+  static const Day = const TimeXtUnit._internal(86400 * 1e3);
+  static const Hour = const TimeXtUnit._internal(3600 * 1e3);
   static const Minute = const TimeXtUnit._internal(60 * 1e3);
   static const Second = const TimeXtUnit._internal(1e3);
   static const Millis = const TimeXtUnit._internal(1e0);
@@ -57,9 +63,9 @@ class NumberToString {
   static List _dictionaryToStringList(double time, double divider) {
     List stringList = [];
     var dictionary = {
-      "week": [7 * 24 * 60 * 60 * 1e3, 2 ^ 64],
-      "day": [24 * 60 * 60 * 1e3, 7],
-      "hour": [60 * 60 * 1e3, 24],
+      "week": [604800 * 1e3, 2 ^ 64],
+      "day": [86400 * 1e3, 7],
+      "hour": [3600 * 1e3, 24],
       "minute": [60 * 1e3, 60],
       "second": [1e3, 60],
       "millisecond": [1, 1e3]
