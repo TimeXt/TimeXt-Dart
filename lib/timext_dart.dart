@@ -97,12 +97,17 @@ class NumberToString {
   }
 
   static String formatHours(double hours) {
-    List stringList = _dictionaryToStringList(hours, 60 * 60 * 1e3);
+    List stringList = _dictionaryToStringList(hours, 3600 * 1e3);
     return stringList.length > 0 ? stringList.join(", ") : formatMinutes(hours * 60);
   }
 
   static String formatDays(double days) {
-    List stringList = _dictionaryToStringList(days, 24 * 60 * 60 * 1e3);
+    List stringList = _dictionaryToStringList(days, 86400 * 1e3);
     return stringList.length > 0 ? stringList.join(", ") : formatMinutes(days * 24);
+  }
+
+  static String formatWeeks(double weeks) {
+    List stringList = _dictionaryToStringList(weeks, 604800 * 1e3);
+    return stringList.length > 0 ? stringList.join(", ") : formatDays(weeks * 24);
   }
 }

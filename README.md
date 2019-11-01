@@ -1,6 +1,6 @@
 # TimeXt-Dart
 
-[![Version](https://img.shields.io/badge/version-v0.4.0-blue.svg)](https://github.com/TimeXt/TimeXt-Dart/releases/tag/0.2.0)
+[![Version](https://img.shields.io/badge/version-v0.4.1-blue.svg)](https://github.com/TimeXt/TimeXt-Dart/releases/tag/0.2.0)
 [![Build](https://img.shields.io/badge/build-success-green.svg)](timext)
 [![CodeCoverage](https://img.shields.io/badge/codeCoverage-95-green.svg)](timext)
 
@@ -59,7 +59,7 @@ var readableStringFromSeconds = NumberToString.formatSeconds(4350554) // 7 weeks
 var readableStringFromMinutes = NumberToString.formatMinutes(432555) // 42 weeks, 6 days, 9 hours, 15 minutes
 var readableStringFromHours = NumberToString.formatHours(4574) // 27 weeks, 1 day, 14 hours
 var readableStringFromDays = NumberToString.formatDays(15.5) // 2 weeks, 1 day, 12 hours
-const readableStringFromWeeks = NumberToString.formatWeeks(24.5) // 24 weeks, 3 days, 12 hours
+var readableStringFromWeeks = NumberToString.formatWeeks(24.5) // 24 weeks, 3 days, 12 hours
 ```
 
 ## Contributors

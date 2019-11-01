@@ -70,6 +70,7 @@ void main() {
     expect(NumberToString.formatMinutes(0), "0 milliseconds");
     expect(NumberToString.formatHours(0), "0 milliseconds");
     expect(NumberToString.formatDays(0), "0 milliseconds");
+    expect(NumberToString.formatWeeks(0), "0 milliseconds");
 
     expect(NumberToString.formatMillis(34325055574), "56 weeks, 5 days, 6 hours, 44 minutes, 15 seconds, 574 milliseconds");
     expect(NumberToString.formatSeconds(4350554), "7 weeks, 1 day, 8 hours, 29 minutes, 14 seconds");
@@ -80,5 +81,7 @@ void main() {
     expect(NumberToString.formatHours(49.25), "2 days, 1 hour, 15 minutes");
     expect(NumberToString.formatDays(23), "3 weeks, 2 days");
     expect(NumberToString.formatDays(15.5), "2 weeks, 1 day, 12 hours");
+    expect(NumberToString.formatWeeks(23), "23 weeks");
+    expect(NumberToString.formatWeeks(15.5), "15 weeks, 3 days, 12 hours");
   });
 }
