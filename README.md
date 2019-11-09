@@ -1,3 +1,7 @@
+<h1 align="center">
+	<img width="90" src="logo.png" alt="timext">
+</h1>
+
 # TimeXt-Dart
 
 [![Version](https://img.shields.io/badge/version-v0.4.1-blue.svg)](https://github.com/TimeXt/TimeXt-Dart/releases/tag/0.2.0)
