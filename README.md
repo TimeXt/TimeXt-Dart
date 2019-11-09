@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/badge/version-v0.4.1-blue.svg)](https://github.com/TimeXt/TimeXt-Dart/releases/tag/0.2.0)
 [![Build](https://img.shields.io/badge/build-success-green.svg)](timext)
-[![CodeCoverage](https://img.shields.io/badge/codeCoverage-95-green.svg)](timext)
+[![Coverage](https://img.shields.io/badge/coverage-95%25-green.svg)](timext)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Paypal](https://img.shields.io/badge/paypal-donate-blue.svg)](https://www.paypal.me/GuepardoApps)
