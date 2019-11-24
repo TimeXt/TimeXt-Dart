@@ -2,15 +2,26 @@
 	<img width="90" src="logo.png" alt="timext">
 </h1>
 
-# TimeXt-Dart
+<p align="center"><h1 style="text-align: center;">TimeXt-Dart</h1></p>
 
-[![Version](https://img.shields.io/badge/version-v0.4.1-blue.svg)](https://github.com/TimeXt/TimeXt-Dart/releases/tag/0.2.0)
-[![Build](https://img.shields.io/badge/build-success-green.svg)](timext)
-[![Coverage](https://img.shields.io/badge/coverage-95%25-green.svg)](timext)
+<p align="center">
+  <a href="https://github.com/TimeXt/TimeXt-Dart/releases/tag/0.4.1"><img src="https://img.shields.io/badge/version-v0.4.1-blue.svg"/></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"/></a>
+  <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"/></a>
+  <a href="https://github.com/TimeXt/timext-Dart/"><img src="https://img.shields.io/github/stars/TimeXt/timext-Dart.svg"/></a>
+</p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Paypal](https://img.shields.io/badge/paypal-donate-blue.svg)](https://www.paypal.me/GuepardoApps)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+<p align="center"><h6 style="text-align: center;">Unit test coverage</h6></p>
+
+<p align="center">
+  <a href="./test"><img src="https://img.shields.io/badge/coverage-95%25-green.svg"/></a>
+</p>
+
+<p align="center"><h6 style="text-align: center;">Support me</h6></p>
+
+<p align="center">
+  <a href="https://www.paypal.me/GuepardoApps"><img src="https://img.shields.io/badge/paypal-support-blue.svg"/></a>
+</p>
 
 First of all many thanks to [Kizitonwose](https://github.com/kizitonwose/Time) for the original idea and already awesome library!
 
